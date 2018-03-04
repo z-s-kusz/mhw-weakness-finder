@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Page from './home.js';
+import MonsterInfoPage from './home.js';
+import MonsterEditPage from './EditMonsters.js';
 
 ReactDOM.render(
     <div>
-        <Page />
+        <MonsterInfoPage />
+        <MonsterEditPage />
     </div>,
     document.getElementById('root')
 );

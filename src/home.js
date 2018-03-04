@@ -38,7 +38,7 @@ class Body extends React.Component {
     }
 }
 
-class Page extends React.Component {
+class MonsterInfoPage extends React.Component {
     render() {
         return (
             <div>
@@ -50,4 +50,4 @@ class Page extends React.Component {
     }
 }
 
-export default Page;
+export default MonsterInfoPage;
