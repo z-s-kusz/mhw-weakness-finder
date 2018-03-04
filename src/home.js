@@ -5,7 +5,7 @@ import monsters from './monsterData';
 class NavBar extends React.Component {
     render() {
         return (
-            <nav className="navbar fixed-top  align-items-end">
+            <nav className="navbar fixed-top align-items-end">
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="text" placeholder="Search" />
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
