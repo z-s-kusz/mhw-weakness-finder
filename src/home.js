@@ -1,5 +1,6 @@
 import React from 'react';
 import MonsterList from './monsterList';
+import axios from 'axios';
 import monsters from './monsterData';
 
 class NavBar extends React.Component {
@@ -29,10 +30,30 @@ class Header extends React.Component {
 }
 
 class Body extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            monsters: []
+        }
+    }
+
+    componentDidMount() {
+        axios.get('/monsters')
+        .then(res => {
+            console.log('got back monsters list from backend!', res);
+            this.setState({
+                monsters: res.data
+            });
+        })
+        .catch(err => {
+            console.log('err from getall backend', err);
+        });
+    }
+
     render() {
         return (
             <div className='container'>
-                <MonsterList monsters={monsters}/>
+                <MonsterList monsters={this.state.monsters}/>
             </div>
         );
     }

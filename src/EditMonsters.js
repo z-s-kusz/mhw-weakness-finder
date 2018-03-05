@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class CreateNewMonster extends React.Component {
     constructor(props) {
@@ -24,6 +25,33 @@ class CreateNewMonster extends React.Component {
 
     clickSubmit(event) {
         event.preventDefault();
+        const state = this.state;
+        const newMonster = {
+            name: state.name,
+            icon: state.icon,
+            weak_statuses: {
+                poison: state.poison,
+                sleep: state.sleep,
+                paralysis: state.paralysis,
+                blast: state.blast,
+                stun: state.stun
+            },
+            weak_elements: {
+                fire: state.fire,
+                water: state.water,
+                thunder: state.thunder,
+                ice: state.ice,
+                dragon: state.dragon
+            }
+        };
+
+        axios.post('/monsters', newMonster)
+        .then(res => {
+            console.log('post success', res);
+        })
+        .catch(err => {
+            console.log('post ERROR', err);
+        });
     }
 
     textChange(event) {
