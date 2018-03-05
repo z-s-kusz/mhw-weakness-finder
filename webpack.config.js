@@ -1,15 +1,10 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: ['./src/app.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js' //the first file name changed idk if will work 
-    },
-    devServer: {
-        contentBase: path.join(__dirname, './dist'),
-        port: 5000,
     },
     devtool: 'cheap-module-source-map',
     module: {
@@ -28,11 +23,5 @@ module.exports = {
                 }
             }
         ]
-    },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: './src/index.html',
-            filename: './index.html'
-        })
-    ]
+    }
 };
