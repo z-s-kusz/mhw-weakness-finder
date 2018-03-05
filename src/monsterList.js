@@ -66,7 +66,6 @@ class WeakElements extends React.Component {
 
 class MonsterIcon extends React.Component {
     render() {
-        console.log('we getting the right string?', this.props.icon);
         return (
             <div className='media'>
                 <img src={this.props.icon} />
