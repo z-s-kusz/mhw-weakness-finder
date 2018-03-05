@@ -15,9 +15,6 @@ const m1 = {
         thunder: 3,
         ice: 2,
         dragon: 1
-    },
-    monster_attacks: {
-        poison: true
     }
 };
 
@@ -38,10 +35,6 @@ const m2 = {
         thunder: 3,
         ice: 0,
         dragon: 2
-    },
-    monster_attacks: {
-        wind_pressure: true,
-        dragon: true
     }
 };
 
@@ -62,9 +55,6 @@ const m3 = {
         thunder: 3,
         ice: 0,
         dragon: 1
-    },
-    monster_attacks: {
-        ice: true
     }
 };
 
