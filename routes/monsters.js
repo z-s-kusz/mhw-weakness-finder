@@ -14,9 +14,22 @@ router.get('/', (req, res) => {
     });
 });
 
+// get/read one
+router.get('/:_id', (req, res) => {
+    const query = {
+        '_id': req.params._id
+    };
+    Monster.find(query, (err, monster) => {
+        if (err) {
+            return res.send(err);
+        } else {
+            return res.json(monster);
+        }
+    });
+});
+
 // create new
 router.post('/', (req, res) => {
-    console.log('req.body!', req.body);
     let monster = new Monster(req.body);
     monster.save(err => {
         if (err) {
@@ -26,5 +39,31 @@ router.post('/', (req, res) => {
         }
     });
 });
+
+// update one by _id
+router.post('/:_id', (req, res) => {
+    Monster.findByIdAndUpdate(req.params._id, req.body, (err, monster) => {
+        if (err) {
+            return res.send(err);
+        } else {
+            return res.sendStatus(200);
+        }
+    });
+});
+
+// delete one by _id
+router.delete('/:_id', (req, res) => {
+    const query = {
+        '_id': req.params._id
+    };
+    Monster.remove(query, (err, monster) => {
+        if (err) {
+            return res.send(err);
+        } else {
+            return res.sendStatus(200);
+        }
+    });
+});
+
 
 module.exports = router;

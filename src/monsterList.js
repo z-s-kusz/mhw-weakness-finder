@@ -2,7 +2,7 @@ import React from 'react';
 
 class WeakStatuses extends React.Component {
     render() {
-        const stats = this.props.statuses;
+        const stats = this.props.monster;
         return (
             <div>
                 <table>
@@ -34,7 +34,7 @@ class WeakStatuses extends React.Component {
 
 class WeakElements extends React.Component {
     render() {
-        const elems = this.props.elements;
+        const elems = this.props.monster;
         return (
             <div>
                 <table>
@@ -87,10 +87,10 @@ class Monster extends React.Component {
                         <div className='container'>
                             <div className='row'>
                                 <div className='col-6'>
-                                <WeakStatuses statuses={this.props.monster.weak_statuses} />
+                                <WeakStatuses monster={this.props.monster} />
                                     </div>
                                 <div className='col-6'>
-                                    <WeakElements elements={this.props.monster.weak_elements} />
+                                    <WeakElements monster={this.props.monster} />
                                 </div>
                             </div>
                         </div>

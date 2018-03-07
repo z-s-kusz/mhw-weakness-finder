@@ -1,12 +1,14 @@
 import React from 'react';
-import MonsterList from './monsterList';
 import axios from 'axios';
-import monsters from './monsterData';
+import { Link } from 'react-router-dom';
+
+import MonsterList from './monsterList';
 
 class NavBar extends React.Component {
     render() {
         return (
-            <nav className="navbar fixed-top align-items-end">
+            <nav className="navbar-dark fixed-top align-items-end">
+                            <Link to='/edit' className='nav-link'>Add/Edit Monsters</Link>
                 <form className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="text" placeholder="Search" />
                     <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -40,13 +42,12 @@ class Body extends React.Component {
     componentDidMount() {
         axios.get('/monsters')
         .then(res => {
-            console.log('got back monsters list from backend!', res);
             this.setState({
                 monsters: res.data
             });
         })
         .catch(err => {
-            console.log('err from getall backend', err);
+            console.log(err);
         });
     }
 
