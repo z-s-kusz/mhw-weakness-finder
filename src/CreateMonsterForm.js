@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import AddMonsterParts from './AddMonsterParts.js';
+
 class CreateMonsterForm extends React.Component {
     constructor(props) {
         super(props);
@@ -16,11 +18,22 @@ class CreateMonsterForm extends React.Component {
             water: 0,
             thunder: 0,
             ice: 0,
-            dragon: 0
-        };        
+            dragon: 0,
+            lowRankParts: [],
+            highRankParts: [],
+            searchableParts: ''
+        };
+        this.updateParts = this.updateParts.bind(this);
         this.clickSubmit = this.clickSubmit.bind(this);
         this.textChange = this.textChange.bind(this);
         this.numberChange = this.numberChange.bind(this);
+    }
+
+    updateParts(parts, rank) {
+        // might need to transform them here again... needs to be a better way (infomercial)!
+        this.setState({
+            [rank]: parts
+        });
     }
 
     textChange(event) {
@@ -96,6 +109,10 @@ class CreateMonsterForm extends React.Component {
                     <label>Drgon:<input type='number'
                         value={this.state.dragon} name='dragon' onChange={this.numberChange}/>
                     </label>
+
+                    <AddMonsterParts rank='lowRankParts' updateParent={this.updateParts} />
+                    <p>-------------------</p>
+                    <AddMonsterParts rank='highRankParts' updateParent={this.updateParts} />
 
                     <button onClick={this.clickSubmit} >Submit</button>
                 </form>

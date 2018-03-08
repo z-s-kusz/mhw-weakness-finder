@@ -14,8 +14,17 @@ const MonsterSchema = new Schema({
     thunder: {type: Number, required: true},
     ice: {type: Number, required: true},
     dragon: {type: Number, required: true},
-    lowRankParts: [],
-    highRankParts: []
+    lowRankParts: [{
+        name: {type: String, required: false},
+        carveRarity: {type: Number, required: false, default: 0},
+        rewardRarity: {type: Number, required: false, default: 0}
+    }],
+    highRankParts: [{
+        name: {type: String, required: false},
+        carveRarity: {type: Number, required: false, default: 0},
+        rewardRarity: {type: Number, required: false, default: 0}
+    }],
+    searchableParts: {type: String, required: true, defult: ''}
 });
 
 const Monster = mongoose.model('Monster', MonsterSchema);

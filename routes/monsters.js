@@ -7,7 +7,8 @@ const Monster = require('../models/monsterSchema');
 router.get('/', (req, res) => {
     Monster.find({}, (err, monsters) => {
         if (err) {
-            return res.send(err);
+            console.log('get all err', err);
+            return res.sendStatus(500);
         } else {
             return res.json(monsters);
         }
@@ -21,7 +22,8 @@ router.get('/:_id', (req, res) => {
     };
     Monster.find(query, (err, monster) => {
         if (err) {
-            return res.send(err);
+            console.log('get 1 err', err);
+            return res.sendStatus(500);
         } else {
             return res.json(monster);
         }
@@ -30,10 +32,11 @@ router.get('/:_id', (req, res) => {
 
 // create new
 router.post('/', (req, res) => {
-    let monster = new Monster(req.body);
+    let monster = new Monster( makePartsSearchable(req.body) );
     monster.save(err => {
         if (err) {
-            return res.send(err);
+            console.log('create err', err);
+            return res.sendStatus(500);
         } else {
             return res.sendStatus(200);
         }
@@ -42,9 +45,11 @@ router.post('/', (req, res) => {
 
 // update one by _id
 router.post('/:_id', (req, res) => {
-    Monster.findByIdAndUpdate(req.params._id, req.body, (err, monster) => {
+    let monster = makePartsSearchable(req.body);
+    Monster.findByIdAndUpdate(req.params._id, monster, (err, monster) => {
         if (err) {
-            return res.send(err);
+            console.log('update err', err);
+            return res.sendStatus(500);
         } else {
             return res.sendStatus(200);
         }
@@ -58,12 +63,30 @@ router.delete('/:_id', (req, res) => {
     };
     Monster.remove(query, (err, monster) => {
         if (err) {
-            return res.send(err);
+            console.log('delete err', err);
+            return res.sendStatus(500);
         } else {
             return res.sendStatus(200);
         }
     });
 });
 
+
+// makes the 2 arrays of monster parts objects more eaily searchable for frontend
+makePartsSearchable = function(monster) {
+    let searchableParts = '';
+    if (monster.lowRankParts.length > 0) {
+        monster.lowRankParts.forEach(reward => {
+            searchableParts += reward.name + ',';
+        });
+    }
+    if (monster.highRankParts.length > 0) {
+        monster.highRankParts.forEach(reward => {
+            searchableParts += reward.name + ',';
+        });
+    }
+    monster.searchableParts = searchableParts;
+    return monster;
+}
 
 module.exports = router;

@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import AddMonsterParts from './AddMonsterParts.js';
+
 //this page is 'http://.../edit/:_id'
 class EditOneMonster extends React.Component {
     constructor(props) {
@@ -20,12 +22,15 @@ class EditOneMonster extends React.Component {
             thunder: 0,
             ice: 0,
             dragon: 0,
-            parts: []
+            lowRankParts: [],
+            highRankParts:[],
+            searchableParts: ''
         };        
         this.clickSubmit = this.clickSubmit.bind(this);
         this.textChange = this.textChange.bind(this);
         this.numberChange = this.numberChange.bind(this);
         this.delete = this.delete.bind(this);
+        this.updateParts = this.updateParts.bind(this);
     }
 
     componentDidMount() {
@@ -76,6 +81,12 @@ class EditOneMonster extends React.Component {
         });
     }
 
+    updateParts(parts, rank) {
+        this.setState({
+            [rank]: parts
+        });
+    }
+
     render() {
         return (
             <div>
@@ -121,8 +132,12 @@ class EditOneMonster extends React.Component {
                         value={this.state.dragon} name='dragon' onChange={this.numberChange}/>
                     </label>
 
-                    <button onClick={this.clickSubmit}>Submit</button>
-                    <button onClick={this.delete}>Delete</button>
+                    <AddMonsterParts rank='lowRankParts' _id={this.props.match.params._id} updateParent={this.updateParts} />
+                    <p>-------------------</p>
+                    <AddMonsterParts rank='highRankParts' _id={this.props.match.params._id} updateParent={this.updateParts} />
+
+                    <button onClick={this.clickSubmit}>Submit Monster</button>
+                    <button onClick={this.delete}>Delete Monster</button>
                 </form>
             </div>
         );
