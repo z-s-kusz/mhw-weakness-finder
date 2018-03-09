@@ -29,15 +29,22 @@ class MonsterInfoPage extends React.Component {
     }
 
     updateMonsterList(searchString) {
-        const filteredMonsters = this.state.monsters.filter(monster => {
-            return (
-                (monster.name.toLowerCase().indexOf(searchString) !== -1) ||
-                (monster.searchableParts.toLowerCase().indexOf(searchString) !== -1)
-            );
-        });
-        this.setState({
-            filteredMonsters: filteredMonsters
-        });
+        //when search is cleared reset whole list
+        if (searchString === '') {
+            this.setState({
+                filteredMonsters: this.state.monsters
+            });
+        } else if (searchString.length > 0) {
+            const filteredMonsters = this.state.monsters.filter(monster => {
+                return (
+                    (monster.name.toLowerCase().indexOf(searchString) !== -1) ||
+                    (monster.searchableParts.toLowerCase().indexOf(searchString) !== -1)
+                );
+            });
+            this.setState({
+                filteredMonsters: filteredMonsters
+            });
+        }
     }
 
     render() {
