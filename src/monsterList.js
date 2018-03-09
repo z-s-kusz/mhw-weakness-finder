@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Table, Grid } from 'react-bootstrap';
+
 class MonsterPartTableElement extends React.Component {
     render() {
         const part = this.props.part;
@@ -18,15 +20,15 @@ class MonsterPartTableElement extends React.Component {
 class PartsRewardsTable extends React.Component {
     render() {
         const parts = this.props.parts;
-        const title = this.props.rank === 'highRankRewards' ? 'High Rank Rewards:' : 'Low Rank Rewards:';
+        const title = this.props.rank === 'highRankParts' ? 'High Rank Reward' : 'Low Rank Reward';
         const tableRows = parts.map(part => {
             return( <MonsterPartTableElement key={part._id} part={part} /> );
         });
-        return(
-            <div>
-                <table>
+        if (parts.length > 0) {
+            return(
+                <Table condensed striped>
                     <thead>
-                        <tr><td>{title}</td></tr>
+                        <tr><td>{title}s:</td></tr>
                         <tr>
                             <td>Name</td><td>Carves Rarity</td><td>Rewards Rarity</td>
                         </tr>
@@ -34,9 +36,11 @@ class PartsRewardsTable extends React.Component {
                     <tbody>
                         {tableRows}
                     </tbody>
-                </table>
-            </div>
-        );
+                </Table>
+            );
+        } else {
+            return( <h4>{title} Info Unavailable</h4> );
+        }
     }
 }
 
@@ -44,30 +48,28 @@ class WeakStatuses extends React.Component {
     render() {
         const stats = this.props.monster;
         return (
-            <div>
-                <table>
-                    <thead>
-                        <tr><td>Status Weakness:</td></tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Poison</td><td>{stats.poison}</td>
-                        </tr>
-                        <tr>
-                            <td>Sleep</td><td>{stats.sleep}</td>
-                        </tr>
-                        <tr>
-                            <td>Paralysis</td><td>{stats.paralysis}</td>
-                        </tr>
-                        <tr>
-                            <td>Blast</td><td>{stats.blast}</td>
-                        </tr>
-                        <tr>
-                            <td>Stun</td><td>{stats.stun}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <Table condensed striped>
+                <thead>
+                    <tr><td>Status Weakness:</td></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Poison</td><td>{stats.poison}</td>
+                    </tr>
+                    <tr>
+                        <td>Sleep</td><td>{stats.sleep}</td>
+                    </tr>
+                    <tr>
+                        <td>Paralysis</td><td>{stats.paralysis}</td>
+                    </tr>
+                    <tr>
+                        <td>Blast</td><td>{stats.blast}</td>
+                    </tr>
+                    <tr>
+                        <td>Stun</td><td>{stats.stun}</td>
+                    </tr>
+                </tbody>
+            </Table>
         );
     }
 }
@@ -77,7 +79,7 @@ class WeakElements extends React.Component {
         const elems = this.props.monster;
         return (
             <div>
-                <table>
+                <Table condensed striped>
                     <thead>
                         <tr><td>Elemental Weakness:</td></tr>
                     </thead>
@@ -98,12 +100,14 @@ class WeakElements extends React.Component {
                             <td>Dragon</td><td>{elems.dragon}</td>
                         </tr>
                     </tbody>
-                </table>
+                </Table>
             </div>
         );
     }
 }
 
+// we will work with this later, lets just get basic text flowing right now
+// <MonsterIcon icon={this.props.monster.icon} /> place this guy into the Monster class where aplicable
 class MonsterIcon extends React.Component {
     render() {
         return (
@@ -117,36 +121,27 @@ class MonsterIcon extends React.Component {
 class Monster extends React.Component {
     render() {
         return (
-            <div className='container'>
-                <div className='row'>
-                    <div className='col-4'>
-                        <MonsterIcon icon={this.props.monster.icon} />
+            <Grid>
+                <h1>{this.props.monster.name}</h1>
+
+                <div className='flexContainer'>
+                    <div className='flexItem'>
+                        <WeakStatuses monster={this.props.monster} />
                     </div>
-                    <div className='col-8'>
-                        <h1>{this.props.monster.name}</h1>
-                        <div className='container'>
-                            <div className='row'>
-                                <div className='col-6'>
-                                    <WeakStatuses monster={this.props.monster} />
-                                </div>
-                                <div className='col-6'>
-                                    <WeakElements monster={this.props.monster} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className='container'>
-                            <div className='row'>
-                                <div className='col-6'>
-                                    <PartsRewardsTable rank='lowRankParts' parts={this.props.monster.lowRankParts} />
-                                </div>
-                                <div className='col-6'>
-                                    <PartsRewardsTable rank='highRankParts' parts={this.props.monster.highRankParts} />
-                                </div>
-                            </div>
-                        </div>
+                    <div className='flexItem'>
+                        <WeakElements monster={this.props.monster} />
                     </div>
                 </div>
-            </div>
+
+                <div className='flexContainer'>
+                    <div className='flexItem'>
+                        <PartsRewardsTable rank='lowRankParts' parts={this.props.monster.lowRankParts} />
+                    </div>
+                    <div className='flexItem'>
+                        <PartsRewardsTable rank='highRankParts' parts={this.props.monster.highRankParts} />
+                    </div>
+                </div>
+            </Grid>
         );
     }
 }

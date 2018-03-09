@@ -1,3 +1,22 @@
-p, td {
+p {
     color: orangered;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-around;
+}
+.flexItem {
+    flex: 0.75;
+}
+
+.tableTitle {
+    text-align: center;
+    font-weight: bold;
+}
+
+@media all and (max-width: 600px) {
+    .flexContainer {
+        flex-flow: column wrap;
+    }
 }

@@ -59,9 +59,9 @@ class MonsterInfoPage extends React.Component {
                 <div className='jumbotron'>
                     <div className='container'>
                         <h1 className='display-4'>MHW Field Guide</h1>
-                        <p>Search monster name or part/reward name.</p>
+                        <h3>Search for Monsters or Parts and Rewards (high and low rank are available).</h3>
                         <p>Weaknesses: 0(immune) - 3(very weak).</p>
-                        <p>Part/rewards: 0(unavailable) - 5(very common).</p>
+                        <p>Part/Rewards: 0(unavailable) - 5(very common).</p>
                     </div>
                 </div>
 
