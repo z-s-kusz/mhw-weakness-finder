@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Button } from 'react-bootstrap';
+
 class Search extends React.Component {
     constructor(props) {
         super(props);
@@ -36,9 +38,9 @@ class Search extends React.Component {
     render() {
         return (
             <div>
-                <input type='text' placeholder='search'
+                <input type='text' placeholder='search' className='form-control'
                     onChange={this.updateSearch} value={this.state.searchString} />
-                <button onClick={this.clearSearch}>Clear Search</button>
+                <Button onClick={this.clearSearch}>Clear Search</Button>
             </div>
         );
     }

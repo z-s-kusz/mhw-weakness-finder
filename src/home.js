@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import MonsterList from './monsterList';
 import Search from './Search.js';
+import { Navbar } from 'react-bootstrap';
 
 class MonsterInfoPage extends React.Component {
     constructor(props) {
@@ -50,17 +51,17 @@ class MonsterInfoPage extends React.Component {
     render() {
         return (
             <div>
-                <nav className="navbar-dark fixed-top align-items-end">
-                    <Link to='/edit' className='nav-link'>Add/Edit Monsters</Link>
-                    <div className="form-inline my-2 my-lg-0">
-                        <Search updateParent={this.updateMonsterList} />
-                    </div>
-                </nav>
+                <Navbar fixedTop>
+                    <Navbar.Text><Link to='/edit'>Add/Edit Monsters</Link></Navbar.Text>
+                    <Navbar.Form pullRight><Search updateParent={this.updateMonsterList} /></Navbar.Form>
+                </Navbar>
 
                 <div className='jumbotron'>
                     <div className='container'>
-                        <h1 className='display-4'>MHW Weakness Finder</h1>
-                        <p>Search Monster Name, Element, and Status Ailments</p>
+                        <h1 className='display-4'>MHW Field Guide</h1>
+                        <p>Search monster name or part/reward name.</p>
+                        <p>Weaknesses: 0(immune) - 3(very weak).</p>
+                        <p>Part/rewards: 0(unavailable) - 5(very common).</p>
                     </div>
                 </div>
 

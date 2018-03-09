@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import MonsterInfoPage from './home.js';
 import MonsterEditPage from './EditMonsters.js';
 import EditOneMonster from './EditOneMonster.js';
+import './stylesheets/globalStyles.css';
 
 ReactDOM.render(
     <Router>
