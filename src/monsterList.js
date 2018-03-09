@@ -1,5 +1,45 @@
 import React from 'react';
 
+class MonsterPartTableElement extends React.Component {
+    render() {
+        const part = this.props.part;
+        return(
+            <tr>
+                <td>{part.name}</td>
+                <td>{part.carveRarity}</td>
+                <td>{part.rewardRarity}</td>
+            </tr>
+        );
+    }
+}
+
+// props rank = 'lowRankParts' || 'highRankParts
+// props parts = {name, carveRarity, rewardRarity, _id}
+class PartsRewardsTable extends React.Component {
+    render() {
+        const parts = this.props.parts;
+        const title = this.props.rank === 'highRankRewards' ? 'High Rank Rewards:' : 'Low Rank Rewards:';
+        const tableRows = parts.map(part => {
+            return( <MonsterPartTableElement key={part._id} part={part} /> );
+        });
+        return(
+            <div>
+                <table>
+                    <thead>
+                        <tr><td>{title}</td></tr>
+                        <tr>
+                            <td>Name</td><td>Carves Rarity</td><td>Rewards Rarity</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {tableRows}
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
+}
+
 class WeakStatuses extends React.Component {
     render() {
         const stats = this.props.monster;
@@ -7,7 +47,7 @@ class WeakStatuses extends React.Component {
             <div>
                 <table>
                     <thead>
-                        <tr><td>Statuses:</td></tr>
+                        <tr><td>Status Weakness:</td></tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -39,7 +79,7 @@ class WeakElements extends React.Component {
             <div>
                 <table>
                     <thead>
-                        <tr><td>Elements:</td></tr>
+                        <tr><td>Elemental Weakness:</td></tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -87,10 +127,20 @@ class Monster extends React.Component {
                         <div className='container'>
                             <div className='row'>
                                 <div className='col-6'>
-                                <WeakStatuses monster={this.props.monster} />
-                                    </div>
+                                    <WeakStatuses monster={this.props.monster} />
+                                </div>
                                 <div className='col-6'>
                                     <WeakElements monster={this.props.monster} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col-6'>
+                                    <PartsRewardsTable rank='lowRankParts' parts={this.props.monster.lowRankParts} />
+                                </div>
+                                <div className='col-6'>
+                                    <PartsRewardsTable rank='highRankParts' parts={this.props.monster.highRankParts} />
                                 </div>
                             </div>
                         </div>
