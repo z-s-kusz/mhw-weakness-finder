@@ -15,7 +15,10 @@ p {
     font-weight: bold;
 }
 
-@media all and (max-width: 780px) {
+@media all and (max-width: 769px) {
+    .mainBody {
+        padding-top: 73px;
+    }
     .clearButton {
         display: inline-block;
     }

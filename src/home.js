@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import MonsterList from './monsterList';
 import Search from './Search.js';
@@ -52,8 +51,7 @@ class MonsterInfoPage extends React.Component {
         return (
             <div>
                 <Navbar fixedTop fluid inverse>
-                    <Navbar.Text><Link to='/edit'>Add/Edit Monsters</Link></Navbar.Text>
-                    <Navbar.Form pullRight><Search updateParent={this.updateMonsterList} /></Navbar.Form>
+                    <Navbar.Form><Search updateParent={this.updateMonsterList} /></Navbar.Form>
                 </Navbar>
 
                 <div className='jumbotron hidden-xs'>
@@ -65,7 +63,7 @@ class MonsterInfoPage extends React.Component {
                     </div>
                 </div>
 
-                <div className='container'>
+                <div className='container mainBody'>
                     <MonsterList monsters={this.state.filteredMonsters}/>
                 </div>
             </div>
