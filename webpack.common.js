@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: ['./src/app.js'],
@@ -7,7 +8,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js'
     },
-    devtool: 'cheap-module-source-map',
     module: {
         rules: [
             {
@@ -34,6 +34,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebPackPlugin({
             template: './src/index.html',
             filename: './index.html'
