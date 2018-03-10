@@ -24,7 +24,7 @@ const MonsterSchema = new Schema({
         carveRarity: {type: Number, required: false, default: 0},
         rewardRarity: {type: Number, required: false, default: 0}
     }],
-    searchableParts: {type: String, required: true, defult: ''}
+    searchableParts: {type: String, defult: ''}
 });
 
 const Monster = mongoose.model('Monster', MonsterSchema);
