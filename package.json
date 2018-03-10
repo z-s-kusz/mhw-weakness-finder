@@ -8,7 +8,9 @@
     "build:dev": "webpack --mode development --config webpack.dev.js",
     "start:dev": "npm run build:dev && node app.js",
     "build:prod": "webpack --mode production --config webpack.prod.js",
-    "start:prod": "npm run build:prod && node app.js"
+    "start:prod": "npm run build:prod && node app.js",
+    "start": "node app.js",
+    "heroku-postbuild": "webpack --mode production --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
