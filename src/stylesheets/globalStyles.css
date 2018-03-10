@@ -15,8 +15,27 @@ p {
     font-weight: bold;
 }
 
+@media all and (max-width: 780px) {
+    .clearButton {
+        display: inline-block;
+    }
+    .searchInput {
+        width: 30%;
+        display: inline-block;
+    }
+}
+
 @media all and (max-width: 600px) {
     .flexContainer {
         flex-flow: column wrap;
+    }
+    .searchInput {
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 360px) {
+    .searchInput {
+        width: 66%;
     }
 }

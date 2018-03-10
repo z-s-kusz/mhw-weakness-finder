@@ -51,12 +51,12 @@ class MonsterInfoPage extends React.Component {
     render() {
         return (
             <div>
-                <Navbar fixedTop>
+                <Navbar fixedTop fluid inverse>
                     <Navbar.Text><Link to='/edit'>Add/Edit Monsters</Link></Navbar.Text>
                     <Navbar.Form pullRight><Search updateParent={this.updateMonsterList} /></Navbar.Form>
                 </Navbar>
 
-                <div className='jumbotron'>
+                <div className='jumbotron hidden-xs'>
                     <div className='container'>
                         <h1 className='display-4'>MHW Field Guide</h1>
                         <h3>Search for Monsters or Parts and Rewards (high and low rank are available).</h3>
