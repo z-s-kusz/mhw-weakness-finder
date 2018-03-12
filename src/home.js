@@ -53,6 +53,7 @@ class MonsterInfoPage extends React.Component {
             <div>
                 <Navbar fixedTop fluid inverse>
                     <Navbar.Text><Link to='/edit'>Add/Edit Monsters</Link></Navbar.Text>
+                    <Navbar.Text><Link to='/charts'>Random Charts</Link></Navbar.Text>
                     <Navbar.Form pullRight><Search updateParent={this.updateMonsterList} /></Navbar.Form>
                 </Navbar>
 
