@@ -18,3 +18,6 @@
 # Current State of MHW Finder
 * Wyvern types and location info will be added.
 * Breakable parts section of field guide will not be added for quite a while, while I get what is here looking better.
+
+# Updates
+03/30/18 - Deviljho added with complete info
