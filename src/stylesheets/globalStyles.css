@@ -15,6 +15,11 @@ p {
     font-weight: bold;
 }
 
+.single-breakable {
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
 @media all and (max-width: 780px) {
     .clearButton {
         display: inline-block;
