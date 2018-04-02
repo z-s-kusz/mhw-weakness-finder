@@ -147,6 +147,21 @@ class CreateBreakables extends Component {
         this.update = this.update.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props._id) {
+            axios.get('http://localhost:5000/monsters/' + this.props._id)
+            .then(res => {
+                const breakables = res.data[0].breakables;
+                this.setState({
+                    breakables: breakables
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
+    }
+
     addDrop(id, rank) {
         let breakables = this.state.breakables;
         const newDrop = {

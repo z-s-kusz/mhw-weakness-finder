@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import AddMonsterParts from './AddMonsterParts.js';
+import CreateBreakables from './editBreakables/CreateBreakables.js';
 
 //this page is 'http://.../edit/:_id'
 class EditOneMonster extends React.Component {
@@ -24,13 +25,15 @@ class EditOneMonster extends React.Component {
             dragon: 0,
             lowRankParts: [],
             highRankParts:[],
-            searchableParts: ''
+            searchableParts: '',
+            breakables: []
         };        
         this.clickSubmit = this.clickSubmit.bind(this);
         this.textChange = this.textChange.bind(this);
         this.numberChange = this.numberChange.bind(this);
         this.delete = this.delete.bind(this);
         this.updateParts = this.updateParts.bind(this);
+        this.updateBreakables = this.updateBreakables.bind(this);
     }
 
     componentDidMount() {
@@ -87,6 +90,12 @@ class EditOneMonster extends React.Component {
         });
     }
 
+    updateBreakables(breakables) {
+        this.setState({
+            breakables: breakables
+        });
+    }
+
     render() {
         return (
             <div>
@@ -135,6 +144,8 @@ class EditOneMonster extends React.Component {
                     <AddMonsterParts rank='lowRankParts' _id={this.props.match.params._id} updateParent={this.updateParts} />
                     <p>-------------------</p>
                     <AddMonsterParts rank='highRankParts' _id={this.props.match.params._id} updateParent={this.updateParts} />
+                    <p>-------------------</p>
+                    <CreateBreakables updateParent={this.updateBreakables} _id={this.props.match.params._id} />
 
                     <button onClick={this.clickSubmit}>Submit Monster</button>
                     <button onClick={this.delete}>Delete Monster</button>
