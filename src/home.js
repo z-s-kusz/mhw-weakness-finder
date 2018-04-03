@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 
 import MonsterList from './monsterList';
 import Search from './Search.js';
-import { Navbar } from 'react-bootstrap';
 
 class MonsterInfoPage extends React.Component {
     constructor(props) {

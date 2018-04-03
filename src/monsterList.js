@@ -1,6 +1,8 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { Table, Grid } from 'react-bootstrap';
+
+import MainMonsterPage from './monsterDetailPage/MainMonsterPage';
 
 class MonsterPartTableElement extends React.Component {
     render() {
@@ -120,9 +122,14 @@ class MonsterIcon extends React.Component {
 
 class Monster extends React.Component {
     render() {
+        const monster = this.props.monster;
+        const title = (
+            <Link to={'/monster/' + monster._id}>{monster.name}</Link>
+        );
+
         return (
             <Grid>
-                <h1>{this.props.monster.name}</h1>
+                <h1>{title}</h1>
 
                 <div className='flexContainer'>
                     <div className='flexItem'>
