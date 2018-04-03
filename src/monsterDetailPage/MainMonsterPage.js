@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
-import { Monster } from '../monsterList';
+import BasicMonsterInfo from '../BasicMonsterInfo';
 
-// hhtp://.../monster/:_id
+// http://.../monster/:_id
 // props _id from route params
 class MainMonsterPage extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ class MainMonsterPage extends Component {
         return (
             <div>
                 <h1>hi its the single monster page!</h1>
-                <Monster monster={this.state.monster} />
+                <BasicMonsterInfo monster={this.state.monster} />
             </div>
         );
     }
