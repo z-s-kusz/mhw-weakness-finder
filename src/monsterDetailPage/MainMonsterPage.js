@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import BasicMonsterInfo from '../BasicMonsterInfo';
+import MonsterBreakables from './MonsterBreakables';
 
 // http://.../monster/:_id
 // props _id from route params
@@ -49,8 +50,8 @@ class MainMonsterPage extends Component {
     render() {
         return (
             <div>
-                <h1>hi its the single monster page!</h1>
                 <BasicMonsterInfo monster={this.state.monster} />
+                <MonsterBreakables monsterParts={this.state.monster.breakables} />
             </div>
         );
     }
