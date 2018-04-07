@@ -45,37 +45,3 @@ class PartsRewardsTable extends React.Component {
 }
 
 export default PartsRewardsTable;
-
-// props monster = entire monster object
-// class BasicMonsterInfo extends React.Component {
-//     render() {
-//         const monster = this.props.monster;
-//         const title = (
-//             <Link to={'/monster/' + monster._id}>{monster.name}</Link>
-//         );
-
-//         return (
-//             <Grid>
-//                 <h1>{title}</h1>
-
-//                 <div className='flexContainer'>
-//                     <div className='flexItem'>
-//                         <WeakStatuses monster={this.props.monster} />
-//                     </div>
-//                     <div className='flexItem'>
-//                         <WeakElements monster={this.props.monster} />
-//                     </div>
-//                 </div>
-
-//                 <div className='flexContainer'>
-//                     <div className='flexItem'>
-//                         <PartsRewardsTable rank='lowRankParts' parts={this.props.monster.lowRankParts} />
-//                     </div>
-//                     <div className='flexItem'>
-//                         <PartsRewardsTable rank='highRankParts' parts={this.props.monster.highRankParts} />
-//                     </div>
-//                 </div>
-//             </Grid>
-//         );
-//     }
-// }

@@ -53,14 +53,4 @@ class BreakablePartsList extends Component {
     }
 }
 
-// // props monsterParts = array
-// class MonsterBreakables extends Component {
-//     render() {
-//         return (
-//                 <BreakablePartsList breakables={this.props.monsterParts} rank={'lowRankDrops'} />
-//                 <BreakablePartsList breakables={this.props.monsterParts} rank={'highRankDrops'} />
-//         );
-//     }
-// }
-
 export default BreakablePartsList;

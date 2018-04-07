@@ -98,7 +98,3 @@ class MainMonsterPage extends Component {
 }
 
 export default MainMonsterPage;
-
-/* <div>
-    <MonsterBreakables monsterParts={this.state.monster.breakables} />
-</div> */

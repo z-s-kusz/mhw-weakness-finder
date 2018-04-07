@@ -35,7 +35,5 @@ class WeakSpots extends Component {
         );
     }
 }
-//                <WeakSpots monsterParts={this.props.monsterParts} />
-
 
 export default WeakSpots;
