@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Grid } from 'react-bootstrap';
 
-import BasicMonsterInfo from '../BasicMonsterInfo';
+import MonsterIcon from './MonsterIcon';
+import WeakElements from './WeakElements';
+import WeakStatuses from './WeakStatuses';
+import PartsRewardsTable from './PartsRewardsTable';
 import MonsterBreakables from './MonsterBreakables';
+import MonsterWeakSpots from './MonsterWeakSpots';
 
 // http://.../monster/:_id
 // props _id from route params
@@ -48,13 +53,52 @@ class MainMonsterPage extends Component {
     }
 
     render() {
+        const monster = this.state.monster;
         return (
-            <div>
-                <BasicMonsterInfo monster={this.state.monster} />
-                <MonsterBreakables monsterParts={this.state.monster.breakables} />
-            </div>
+            <Grid>
+                <div className='flexContainer'>
+                    <div className='flexItem'>
+                        <h1>{monster.name}</h1>
+                        <MonsterIcon icon={monster.icon} />
+                    </div>
+                    <div className='flexItem'>
+                        <MonsterWeakSpots monsterParts={monster.breakables}/>
+                    </div>
+                </div>
+
+                <div className='flexContainer'>
+                    <div className='flexItem'>
+                        <WeakStatuses monster={monster} />
+                    </div>
+                    <div className='flexItem'>
+                        <WeakElements monster={monster} />
+                    </div>
+                </div>
+
+                <div className='flexContainer'>
+                    <div className='flexItem'>
+                        <PartsRewardsTable parts={monster.lowRankParts} rank='lowRankParts' />
+                    </div>
+                    <div className='flexItem'>
+                        <PartsRewardsTable parts={monster.highRankParts} rank='highRankParts' />
+                    </div>
+                </div>
+
+                <div className='flexContainer'>
+                    <div className='flexItem'>
+                        <MonsterBreakables breakables={monster.breakables} rank={'lowRankDrops'} />
+                    </div>
+                    <div className='flexItem'>
+                        <MonsterBreakables breakables={monster.breakables} rank={'highRankDrops'} />
+                    </div>
+                </div>
+            </Grid>
         );
     }
 }
 
 export default MainMonsterPage;
+
+/* <div>
+    <MonsterBreakables monsterParts={this.state.monster.breakables} />
+</div> */

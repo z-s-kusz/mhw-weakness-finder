@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Grid } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 // props drops = low or high rank drops array (this comp doesnt need to know rank)
 class PartDrops extends Component {
@@ -53,55 +53,14 @@ class BreakablePartsList extends Component {
     }
 }
 
-class WeakSpots extends Component {
-    render() {
-        const allParts = this.props.monsterParts;
-        let weakParts = allParts.filter(part => {
-            return part.weakPoint === true;
-        }).map((part, i) => {
-            return (
-                <tr key={i}>
-                    <td>{part.name}</td>
-                    <td>{part.slicing}</td>
-                    <td>{part.blunt}</td>
-                    <td>{part.ranged}</td>
-                </tr>
-            );
-        });
+// // props monsterParts = array
+// class MonsterBreakables extends Component {
+//     render() {
+//         return (
+//                 <BreakablePartsList breakables={this.props.monsterParts} rank={'lowRankDrops'} />
+//                 <BreakablePartsList breakables={this.props.monsterParts} rank={'highRankDrops'} />
+//         );
+//     }
+// }
 
-        return (
-            <Table condensed striped>
-                <thead>
-                    <tr><td>Weak Spots:</td></tr>
-                    <tr>
-                        <td>Part</td>
-                        <td>Slicing</td>
-                        <td>Blunt</td>
-                        <td>Ranged</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {weakParts}
-                </tbody>
-            </Table>
-        );
-    }
-}
-
-
-// props monsterParts = array
-class MonsterBreakables extends Component {
-    render() {
-        return (
-            <Grid>
-                <WeakSpots monsterParts={this.props.monsterParts} />
-                <p>---------------</p>
-                <BreakablePartsList breakables={this.props.monsterParts} rank={'lowRankDrops'} />
-                <BreakablePartsList breakables={this.props.monsterParts} rank={'highRankDrops'} />
-
-            </Grid>
-        );
-    }
-}
-
-export default MonsterBreakables;
+export default BreakablePartsList;

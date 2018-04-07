@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 
-import MonsterList from './monsterList';
+import MonsterList from './MonsterList';
 import Search from './Search.js';
 
 class MonsterInfoPage extends React.Component {
