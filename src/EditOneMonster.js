@@ -13,6 +13,7 @@ class EditOneMonster extends React.Component {
             _id: '',
             name: '',
             icon: '',
+            iconCredits: '',
             poison: 0,
             sleep: 0,
             paralysis: 0,
@@ -106,6 +107,8 @@ class EditOneMonster extends React.Component {
                         value={this.state.name} name='name' onChange={this.textChange} />
                     <input placeholder='Monster Picture URL'
                         value={this.state.icon} name='icon' onChange={this.textChange} />
+                    <input placeholder='Monster Pic Source Credits'
+                        value={this.state.iconCredits} name='iconCredits' onChange={this.textChange} />
 
                     <h5>Status Weaknesses:</h5>
                     <label>Poison:<input type='number'
