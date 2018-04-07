@@ -57,9 +57,9 @@ class MainMonsterPage extends Component {
         return (
             <Grid>
                 <div className='flexContainer'>
-                    <div className='flexItem'>
-                        <h1>{monster.name}</h1>
-                        <MonsterIcon icon={monster.icon} />
+                    <div className='flexItem icon-center'>
+                        <h1 className='icon-item'>{monster.name}</h1>
+                        <MonsterIcon icon={monster.icon} className='icon-item' />
                     </div>
                     <div className='flexItem'>
                         <MonsterWeakSpots monsterParts={monster.breakables}/>

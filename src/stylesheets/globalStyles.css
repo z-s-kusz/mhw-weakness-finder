@@ -20,6 +20,16 @@ p {
     border-radius: 4px;
 }
 
+.icon-center {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.icon-item, .media {
+    align-self: center;
+}
+
 @media all and (max-width: 780px) {
     .clearButton {
         display: inline-block;
