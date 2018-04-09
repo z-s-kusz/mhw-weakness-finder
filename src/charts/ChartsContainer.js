@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BarChart, XAxis, YAxis, Bar } from 'recharts';
+import { BarChart, XAxis, YAxis, Bar, ResponsiveContainer } from 'recharts';
+
+import '../stylesheets/charts.css';
 
 // props monsters = array of all monsters
 class WeaknessTotals extends Component {
@@ -30,14 +32,18 @@ class WeaknessTotals extends Component {
             data[9].amt += monster.dragon;
         });
 
-        return(
+        return (
             <div>
                 <h1>Total Amount of Stars by Weakness</h1>
-                <BarChart data={data} width={720} height={240}>
-                    <XAxis dataKey='name'/>
-                    <YAxis/>
-                    <Bar dataKey='amt' fill='#8884d8' />
-                </BarChart>
+                <div className='chart-container-lrg'>
+                    <ResponsiveContainer width='100%' height='100%' minWidth={620}>
+                        <BarChart data={data}>
+                            <XAxis dataKey='name'/>
+                            <YAxis/>
+                            <Bar dataKey='amt' fill='#8884d8' />
+                        </BarChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
         );
     }
@@ -71,11 +77,15 @@ class BasicStatusWeakness extends Component {
         return(
             <div>
                 <h1>{title}</h1>
-                <BarChart data={data} width={360} height={240}>
-                    <XAxis dataKey='name' />
-                    <YAxis domain={[0,20]} />
-                    <Bar dataKey='amt' fill='#8884d8' />
-                </BarChart>
+                <div className='chart-container-sml'>
+                    <ResponsiveContainer width='100%' height='100%' minWidth={220}>
+                    <BarChart data={data}>
+                        <XAxis dataKey='name' />
+                        <YAxis domain={[0,20]} />
+                        <Bar dataKey='amt' fill='#8884d8' />
+                    </BarChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
         );
     }
@@ -103,7 +113,7 @@ class ChartsContainer extends Component {
 
     render() {
         return(
-            <div>
+            <div className='container'>
                 <div>
                     <BasicStatusWeakness monsters={this.state.monsters} weakness='poison' />
                     <BasicStatusWeakness monsters={this.state.monsters} weakness='sleep' />
