@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import AddMonsterParts from './AddMonsterParts.js';
 import CreateBreakables from './editBreakables/CreateBreakables.js';
+import FixedNav from './FixedNav';
 
 //this page is 'http://.../edit/:_id'
 class EditOneMonster extends React.Component {
@@ -100,7 +101,7 @@ class EditOneMonster extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/edit'>Back to Edit List</Link>
+                <FixedNav pageName='edit/_id' />
                 <h1>Edit Existing Monster</h1>
                 <form>
                     <input placeholder='Monster Name'
