@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import MonsterList from './MonsterList';
+import MonsterList from './monsterList';
 import FixedNav from './FixedNav';
 
 class MonsterInfoPage extends React.Component {
