@@ -8,6 +8,7 @@ import WeakStatuses from './WeakStatuses';
 import PartsRewardsTable from './PartsRewardsTable';
 import MonsterBreakables from './MonsterBreakables';
 import MonsterWeakSpots from './MonsterWeakSpots';
+import '../stylesheets/mainMonsterPage.css';
 
 // http://.../monster/:_id
 // props _id from route params
@@ -61,7 +62,7 @@ class MainMonsterPage extends Component {
                         <h1 className='icon-item'>{monster.name}</h1>
                         <MonsterIcon icon={monster.icon} className='icon-item' />
                     </div>
-                    <div className='flexItem'>
+                    <div className='flexItem monster-detail-top'>
                         <MonsterWeakSpots monsterParts={monster.breakables}/>
                     </div>
                 </div>

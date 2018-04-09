@@ -48,12 +48,10 @@ class MonsterInfoPage extends React.Component {
     render() {
         return (
             <div>
-                <div className='jumbotron hidden-xs'>
+                <div className='jumbotron'>
                     <div className='container'>
                         <h1 className='display-4'>MHW Field Guide</h1>
-                        <h3>Search for Monsters or Parts and Rewards (high and low rank are available).</h3>
-                        <p>Weaknesses: 0(immune) - 3(very weak).</p>
-                        <p>Part/Rewards: 0(unavailable) - 5(very common).</p>
+                        <h3>Search Monsters, Parts &amp; Rewards.</h3>
                     </div>
                 </div>
 

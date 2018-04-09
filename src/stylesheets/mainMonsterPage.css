@@ -1,0 +1,25 @@
+.monster-detail-top, .icon-center {
+    margin-top: 50px;
+}
+
+@media all and (max-width: 780px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 600px) { /* info becomes single row */
+    .monster-detail-top {
+        margin-top: 0;
+    }
+}
+
+@media all and (max-width: 360px) {
+
+}
+
+@media all and (max-width: 310px) { /* support to 305px */
+
+}
