@@ -1,6 +1,6 @@
 {
   "name": "mhw-weakness-finder",
-  "version": "9.5.0",
+  "version": "1.5.0",
   "description": "checkin out webpack with node",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,9 @@
     "start:prod": "npm run build:prod && node app.js",
     "start": "node app.js",
     "heroku-postbuild": "webpack --mode production --config webpack.prod.js"
+  },
+  "engines": {
+    "node" : "9.5.0"
   },
   "keywords": [],
   "author": "",
