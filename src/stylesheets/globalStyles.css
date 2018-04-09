@@ -15,10 +15,31 @@ p {
     font-weight: bold;
 }
 
-@media all and (max-width: 769px) {
-    .mainBody {
-        padding-top: 73px;
-    }
+.single-breakable {
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.icon-center {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.icon-item, .media {
+    align-self: center;
+}
+
+.navbar-form {
+    margin-bottom: 0;
+    border: none;
+}
+
+thead {
+    font-weight: bold;
+}
+
+@media all and (max-width: 780px) {
     .clearButton {
         display: inline-block;
     }
@@ -28,17 +49,36 @@ p {
     }
 }
 
+@media all and (max-width: 768px) {
+    h1 {
+        margin-top: 40px;
+    }
+    .searchInput {
+        width: 70%;
+    }
+    .navbar-form {
+        margin-top: 0;
+    }
+}
+
 @media all and (max-width: 600px) {
     .flexContainer {
         flex-flow: column wrap;
     }
-    .searchInput {
-        width: 50%;
-    }
 }
 
 @media all and (max-width: 360px) {
+    h1 {
+        font-size: 32px;
+        margin-top: 30px;
+    }
+    h3 {
+        margin-bottom: 0;
+    }
+}
+
+@media all and (max-width: 310px) { /* support to 305px */
     .searchInput {
-        width: 66%;
+        width: 50%;
     }
 }

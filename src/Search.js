@@ -27,7 +27,8 @@ class Search extends React.Component {
         this.props.updateParent(transformedSearch);
     }
 
-    clearSearch() {
+    clearSearch(event) {
+        event.preventDefault();
         this.setState({
             searchString: ''
         }, () => {
@@ -37,11 +38,11 @@ class Search extends React.Component {
 
     render() {
         return (
-            <div className='form-group'>
+            <form>
                 <input type='text' placeholder='Search' className='form-control searchInput'
                     onChange={this.updateSearch} value={this.state.searchString} />
                 <Button onClick={this.clearSearch} className='clearButton'>Clear</Button>
-            </div>
+            </form>
         );
     }
 }
