@@ -1,0 +1,31 @@
+.chart-container-sml {
+    max-width: 400px;
+    height: 280px;
+}
+
+.chart-container-lrg {
+    max-width: 1000px;
+    height: 280px;
+}
+
+@media all and (max-width: 780px) {
+
+}
+
+@media all and (max-width: 768px) {
+
+}
+
+@media all and (max-width: 600px) {
+    .recharts-surface {
+        margin-left: -30px;
+    }
+}
+
+@media all and (max-width: 360px) {
+
+}
+
+@media all and (max-width: 310px) { /* support to 305px */
+
+}

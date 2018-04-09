@@ -11,7 +11,7 @@ class ChartsPage extends React.Component {
                 <FixedNav pageName='charts' />
                 <Jumbotron>
                     <h1 className='jumbo-title'>Charts</h1>
-                    <p>These charts don't really show anything useful except that fire wyverns are overused.</p>
+                    <p>These charts don't really show anything except that fire wyverns are overused.</p>
                     <p>Browse, say 'neat', and go back to the useful part of this app.</p>
                 </Jumbotron>
                 <ChartsContainer />
