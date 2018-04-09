@@ -1,10 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
 
 import MonsterList from './MonsterList';
-import Search from './Search.js';
 
 class MonsterInfoPage extends React.Component {
     constructor(props) {
@@ -51,12 +48,6 @@ class MonsterInfoPage extends React.Component {
     render() {
         return (
             <div>
-                <Navbar fixedTop fluid inverse>
-                    <Navbar.Text><Link to='/edit'>Add/Edit Monsters</Link></Navbar.Text>
-                    <Navbar.Text><Link to='/charts'>Random Charts</Link></Navbar.Text>
-                    <Navbar.Form pullRight><Search updateParent={this.updateMonsterList} /></Navbar.Form>
-                </Navbar>
-
                 <div className='jumbotron hidden-xs'>
                     <div className='container'>
                         <h1 className='display-4'>MHW Field Guide</h1>
