@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import MonsterList from './MonsterList';
+import FixedNav from './FixedNav';
 
 class MonsterInfoPage extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class MonsterInfoPage extends React.Component {
             this.setState({
                 filteredMonsters: this.state.monsters
             });
-        } else if (searchString.length > 0) {
+        } else {
             const filteredMonsters = this.state.monsters.filter(monster => {
                 return (
                     (monster.name.toLowerCase().indexOf(searchString) !== -1) ||
@@ -48,6 +49,7 @@ class MonsterInfoPage extends React.Component {
     render() {
         return (
             <div>
+                <FixedNav pageName='home' updateParent={this.updateMonsterList} />
                 <div className='jumbotron'>
                     <div className='container'>
                         <h1 className='display-4'>MHW Field Guide</h1>

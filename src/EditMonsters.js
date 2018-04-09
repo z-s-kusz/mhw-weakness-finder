@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import CreateMonsterForm from './CreateMonsterForm.js';
+import FixedNav from './FixedNav';
 
 // http://.../edit
 class EditItem extends React.Component {
@@ -53,7 +54,7 @@ class MonsterEditPage extends React.Component {
     render() {
         return (
             <div className='container'>
-                <Link to='/'>Home</Link>
+                <FixedNav pageName='edit' />
                 <div className='row'>
                     <CreateMonsterForm />
                 </div>

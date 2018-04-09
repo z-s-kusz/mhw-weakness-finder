@@ -8,7 +8,6 @@ import MonsterEditPage from './EditMonsters.js';
 import EditOneMonster from './EditOneMonster.js';
 import ChartsPage from './charts/ChartsPage.js';
 import MainMonsterPage from './monsterDetailPage/MainMonsterPage.js';
-import FixedNav from './FixedNav';
 
 ReactDOM.render(
     <Router>
@@ -18,8 +17,6 @@ ReactDOM.render(
             <Route path='/edit/:_id' component={EditOneMonster} />
             <Route exact path='/charts' component={ChartsPage} />
             <Route path='/monster/:_id' component={MainMonsterPage} />
-
-            <Route path='/' component={FixedNav} />
         </div>
     </Router>,
     document.getElementById('root')

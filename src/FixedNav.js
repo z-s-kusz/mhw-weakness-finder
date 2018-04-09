@@ -4,9 +4,20 @@ import { Navbar } from 'react-bootstrap';
 
 import Search from './Search';
 
+
+// props updateParent moves the search filter up the chain
+// only needed in home page for search
 class FixedNav extends React.Component {
+    constructor(props) {
+        super(props);
+        this.updateMonsterList = this.updateMonsterList.bind(this);
+    }
+
+    updateMonsterList(search) {
+        this.props.updateParent(search);
+    }
     render() {
-        const search = this.props.location.pathname === '/' ?
+        const search = this.props.pageName === 'home' ?
             <Navbar.Form pullRight><Search updateParent={this.updateMonsterList} /></Navbar.Form> :
             <Link to='/'>MHW Field Guide</Link>;
 

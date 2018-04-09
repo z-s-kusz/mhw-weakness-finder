@@ -8,6 +8,7 @@ import WeakStatuses from './WeakStatuses';
 import PartsRewardsTable from './PartsRewardsTable';
 import MonsterBreakables from './MonsterBreakables';
 import MonsterWeakSpots from './MonsterWeakSpots';
+import FixedNav from '../FixedNav';
 import '../stylesheets/mainMonsterPage.css';
 
 // http://.../monster/:_id
@@ -56,44 +57,48 @@ class MainMonsterPage extends Component {
     render() {
         const monster = this.state.monster;
         return (
-            <Grid>
-                <div className='flexContainer'>
-                    <div className='flexItem icon-center'>
-                        <h1 className='icon-item'>{monster.name}</h1>
-                        <MonsterIcon icon={monster.icon} className='icon-item' />
+            <div>
+                <FixedNav pageName='monster/_id' />
+                <Grid>
+                    <div className='flexContainer'>
+                        <div className='flexItem icon-center'>
+                            <h1 className='icon-item'>{monster.name}</h1>
+                            <MonsterIcon icon={monster.icon} className='icon-item' />
+                        </div>
+                        <div className='flexItem monster-detail-top'>
+                            <MonsterWeakSpots monsterParts={monster.breakables}/>
+                        </div>
                     </div>
-                    <div className='flexItem monster-detail-top'>
-                        <MonsterWeakSpots monsterParts={monster.breakables}/>
-                    </div>
-                </div>
 
-                <div className='flexContainer'>
-                    <div className='flexItem'>
-                        <WeakStatuses monster={monster} />
+                    <div className='flexContainer'>
+                        <div className='flexItem'>
+                            <WeakStatuses monster={monster} />
+                        </div>
+                        <div className='flexItem'>
+                            <WeakElements monster={monster} />
+                        </div>
                     </div>
-                    <div className='flexItem'>
-                        <WeakElements monster={monster} />
-                    </div>
-                </div>
 
-                <div className='flexContainer'>
-                    <div className='flexItem'>
-                        <PartsRewardsTable parts={monster.lowRankParts} rank='lowRankParts' />
+                    <div className='flexContainer'>
+                        <div className='flexItem'>
+                            <PartsRewardsTable parts={monster.lowRankParts} rank='lowRankParts' />
+                        </div>
+                        <div className='flexItem'>
+                            <PartsRewardsTable parts={monster.highRankParts} rank='highRankParts' />
+                        </div>
                     </div>
-                    <div className='flexItem'>
-                        <PartsRewardsTable parts={monster.highRankParts} rank='highRankParts' />
-                    </div>
-                </div>
 
-                <div className='flexContainer'>
-                    <div className='flexItem'>
-                        <MonsterBreakables breakables={monster.breakables} rank={'lowRankDrops'} />
+                    <div className='flexContainer'>
+                        <div className='flexItem'>
+                            <MonsterBreakables breakables={monster.breakables} rank={'lowRankDrops'} />
+                        </div>
+                        <div className='flexItem'>
+                            <MonsterBreakables breakables={monster.breakables} rank={'highRankDrops'} />
+                        </div>
                     </div>
-                    <div className='flexItem'>
-                        <MonsterBreakables breakables={monster.breakables} rank={'highRankDrops'} />
-                    </div>
-                </div>
-            </Grid>
+
+                </Grid>
+            </div>
         );
     }
 }
