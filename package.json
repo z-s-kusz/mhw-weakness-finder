@@ -1,6 +1,6 @@
 {
   "name": "mhw-weakness-finder",
-  "version": "1.0.0",
+  "version": "9.5.0",
   "description": "checkin out webpack with node",
   "main": "index.js",
   "scripts": {
