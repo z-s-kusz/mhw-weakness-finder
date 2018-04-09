@@ -50,7 +50,7 @@ thead {
 }
 
 @media all and (max-width: 768px) {
-    h1 {
+    .jumbo-title {
         margin-top: 40px;
     }
     .searchInput {
@@ -65,10 +65,13 @@ thead {
     .flexContainer {
         flex-flow: column wrap;
     }
+    .jumbotron {
+        margin-bottom: 0;
+    }
 }
 
 @media all and (max-width: 360px) {
-    h1 {
+    .jumbo-title {
         font-size: 32px;
         margin-top: 30px;
     }
