@@ -18,7 +18,6 @@ class FixedNav extends React.Component {
             </Navbar.Header>
             <Navbar.Collapse>
                 <Navbar.Text><Link to='/'>Home</Link></Navbar.Text>
-                <Navbar.Text><Link to='/edit'>Add/Edit Monsters</Link></Navbar.Text>
                 <Navbar.Text><Link to='/charts'>Random Charts</Link></Navbar.Text>
             </Navbar.Collapse>
             </Navbar>
