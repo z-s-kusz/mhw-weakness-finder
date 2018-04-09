@@ -35,6 +35,10 @@ p {
     border: none;
 }
 
+thead {
+    font-weight: bold;
+}
+
 @media all and (max-width: 780px) {
     .clearButton {
         display: inline-block;

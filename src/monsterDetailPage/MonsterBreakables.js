@@ -24,7 +24,7 @@ class BreakablePartsList extends Component {
     render() {
         const rank = this.props.rank;
         const rankTitle = rank === 'lowRankDrops' ? 'Low Rank' : 'High Rank';
-        let title = 'Breakables Drops: ' + rankTitle;
+        let title = 'Breakables - ' + rankTitle + ':';
 
         const drops = this.props.breakables.filter(breakable => {
             return breakable[rank].length > 0;
@@ -42,11 +42,11 @@ class BreakablePartsList extends Component {
             );
         });
 
-        if (drops.length === 0) title = 'Monster Breakables Drop Info Unavailable For ' + rankTitle;
+        if (drops.length === 0) title = 'Breakables - ' + rankTitle + ': Unavailable';
 
         return(
             <div>
-                <h2>{title}</h2>
+                <h4>{title}</h4>
                 {drops}
             </div>
         );
