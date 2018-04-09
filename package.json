@@ -13,7 +13,7 @@
     "heroku-postbuild": "webpack --mode production --config webpack.prod.js"
   },
   "engines": {
-    "node" : "9.5.0"
+    "node": "9.5.0"
   },
   "keywords": [],
   "author": "",
