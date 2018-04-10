@@ -42,7 +42,7 @@ class MainMonsterPage extends Component {
     componentDidMount() {
         const routeID = this.props.match.params._id;
         if (routeID) {
-            axios.get('http://localhost:5000/monsters/' + routeID)
+            axios.get('https://mhw-field-guide.herokuapp.com/monster/' + routeID)
             .then(res => {
                 this.setState({
                     monster: res.data[0]
