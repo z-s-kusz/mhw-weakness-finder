@@ -51,7 +51,9 @@ thead {
 
 @media all and (max-width: 768px) {
     .jumbo-title {
-        margin-top: 40px;
+        margin-top: 38px;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
     .searchInput {
         width: 70%;
@@ -67,6 +69,7 @@ thead {
     }
     .jumbotron {
         margin-bottom: 0;
+        padding-bottom: 16px;
     }
 }
 
