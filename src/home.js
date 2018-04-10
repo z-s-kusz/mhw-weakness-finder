@@ -53,7 +53,7 @@ class MonsterInfoPage extends React.Component {
                 <div className='jumbotron'>
                     <div className='container'>
                         <h1 className='display-4 jumbo-title'>MHW Field Guide</h1>
-                        <h3>Search Monsters, Parts &amp; Rewards.</h3>
+                        <h3 className='hidden-xs'>Search Monsters, Parts &amp; Rewards.</h3>
                     </div>
                 </div>
 
