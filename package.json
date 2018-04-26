@@ -8,7 +8,9 @@
     "build:dev": "webpack --mode development --config webpack.dev.js",
     "start:dev": "npm run build:dev && node app.js",
     "build:prod": "webpack --mode production --config webpack.prod.js",
-    "start:prod": "npm run build:prod && node app.js"
+    "start:prod": "npm run build:prod && node app.js",
+    "open:cy": "./node_modules/.bin/cypress open",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +38,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cypress": "^2.1.0",
     "express": "^4.16.2",
     "mongoose": "^5.0.8",
     "npm": "^5.7.1"

@@ -15,3 +15,8 @@
 .env.production.local
 
 npm-debug.log*
+
+# cypress
+cypress/fixtures/example.json
+cypress/integration/example_spec.js
+cypress/support
