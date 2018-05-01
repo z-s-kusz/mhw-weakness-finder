@@ -14,7 +14,7 @@ class MonsterList extends React.Component {
                 <Link to={'/monster/' + monster._id}>{monster.name}</Link>
             );
             return (
-                <Grid key={i}>
+                <Grid key={i} data-cy='monsterListItem'>
                 <h1>{title}</h1>
 
                 <div className='flexContainer'>

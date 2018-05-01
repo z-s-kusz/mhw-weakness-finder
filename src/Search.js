@@ -39,7 +39,7 @@ class Search extends React.Component {
     render() {
         return (
             <form>
-                <input type='text' placeholder='Search' className='form-control searchInput'
+                <input type='text' placeholder='Search' data-cy='search' className='form-control searchInput'
                     onChange={this.updateSearch} value={this.state.searchString} />
                 <Button onClick={this.clearSearch} className='clearButton'>Clear</Button>
             </form>

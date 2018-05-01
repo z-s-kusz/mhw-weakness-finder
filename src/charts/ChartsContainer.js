@@ -33,7 +33,7 @@ class WeaknessTotals extends Component {
         });
 
         return (
-            <div>
+            <div data-cy='chart'>
                 <h1>Total Amount of Stars by Weakness</h1>
                 <div className='chart-container-lrg'>
                     <ResponsiveContainer width='100%' height='100%' minWidth={620}>
@@ -75,7 +75,7 @@ class BasicStatusWeakness extends Component {
             }
         });
         return(
-            <div>
+            <div data-cy='chart'>
                 <h1>{title}</h1>
                 <div className='chart-container-sml'>
                     <ResponsiveContainer width='100%' height='100%' minWidth={220}>
