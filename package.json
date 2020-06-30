@@ -11,7 +11,7 @@
     "start:prod": "npm run build:prod && node app.js",
     "open:cy": "./node_modules/.bin/cypress open",
     "build": "webpack --mode production --config webpack.prod.js",
-    "start": "npm run build:prod && node app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
