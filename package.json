@@ -10,37 +10,38 @@
     "build:prod": "webpack --mode production --config webpack.prod.js",
     "start:prod": "npm run build:prod && node app.js",
     "open:cy": "./node_modules/.bin/cypress open",
-    "start": "node app.js"
+    "build": "webpack --mode production --config webpack.prod.js",
+    "start": "npm run build:prod && node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
-    "css-loader": "^0.28.11",
+    "css-loader": "^3.6.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.13.1",
     "react-router-dom": "^4.2.2",
     "recharts": "^1.0.0-beta.10",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "webpack": "^4.8.1",
-    "webpack-cli": "^2.1.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "cypress": "^2.1.0",
+    "cypress": "^4.9.0",
     "express": "^4.16.3",
     "mongoose": "^5.0.17",
-    "npm": "^5.8.0"
+    "npm": "^6.14.5"
   }
 }

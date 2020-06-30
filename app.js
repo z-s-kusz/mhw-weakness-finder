@@ -12,19 +12,15 @@ let databaseURI;
 // process.env.MONGODB_URI will only be defined if you are running on Heroku
 if (process.env.MONGODB_URI !== undefined) {
     databaseURI = process.env.MONGODB_URI;
-} else {
-    // use the local database server
-    databaseURI = 'mongodb://localhost:27017/monsters';
+    mongoose.connect(databaseURI);
+
+    mongoose.connection.on('connected', () => {
+        console.log('Mongoose connection open ', databaseURI);
+    });
+    mongoose.connection.on('error', (err) => {
+        console.log('Mongoose error connecting ', err);
+    });
 }
-
-mongoose.connect(databaseURI);
-
-mongoose.connection.on('connected', () => {
-    console.log('Mongoose connection open ', databaseURI);
-});
-mongoose.connection.on('error', (err) => {
-    console.log('Mongoose error connecting ', err);
-});
 
 // static files
 app.use(express.static(path.join(__dirname, './dist')));
