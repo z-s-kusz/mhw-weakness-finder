@@ -30,7 +30,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^4.2.2",
-    "recharts": "^1.0.0-beta.10",
+    "recharts": "^2.1.14",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.43.0",
